@@ -1,32 +1,81 @@
-function clickbutton(target) {
-  let result = document.getElementById("result")
-  let target_value = target.innerHTML;
-  
-  if (target_value == "AC") {
-    result.innerHTML = "0"
-  } else if (target_value == "=") {
-    result.innerHTML = eval(result.innerHTML)
-  } else if(target_value == "+" && result.innerHTML.slice(-1) == "+"){
-          let answer = result.innerHTML.slice(0,-1);
-          result.innerHTML = answer  + "+";
-    } else if(target_value == "-" && result.innerHTML.slice(-1) == "-"){
-          let answer = result.innerHTML.slice(0,-1);
-          result.innerHTML = answer  + "-";
-    } else if(target_value == "*" && result.innerHTML.slice(-1) == "*"){
-          let answer = result.innerHTML.slice(0,-1);
-          result.innerHTML = answer  + "*";
-    } else if(target_value == "/" && result.innerHTML.slice(-1) == "/"){
-          let answer = result.innerHTML.slice(0,-1);
-          result.innerHTML = answer  + "/";
-    } else {
-    if (result.innerHTML == "0" && "00") {
-      result.innerHTML = target_value
-    } 
-    else {
-      result.innerHTML += target_value
-    }
-  }
+let result = document.getElementById("result");
+
+
+
+function number(elem) {
+
+if (result.value === "0"){
+
+
+} else {
+
+
+result.value = result.value + elem.value;
+
+}
+
 }
 
 
+function number(elem) {
+
+if (result.value === "00"){
+
+
+} else {
+
+
+result.value = result.value + elem.value;
+
+}
+
+}
+
+
+function edit(elem) {
+
+if (result.value.slice(-1) === '+' ){
+
+return;
+
+} else if (result.value.slice(-1) === '-' ){
+
+return;
+
+} else if (result.value.slice(-1) === '*' ){
+
+return;
+
+} else if (result.value.slice(-1) === '/' ){
+
+return;
+
+} else if (result.value.slice(-1) === '.' ){
+
+return;
+
+
+} else {
+
+result.value = result.value + elem.value;
+
+}
+
+}
+
+
+
+function calc() {
+
+result.value = new Function("return " + result.value)();
+
+}
+
+
+
+function update(){
+
+result.value = '';
+
+}
     
